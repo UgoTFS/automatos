@@ -7,14 +7,13 @@ import com.project.Interfaces.AppMenu;
 public class AppMainMenu implements AppMenu {
 
   @Override
-  public int show() {
-    try (Scanner scanner = new Scanner(System.in)) {
+  public int show(Scanner scanner) {
       System.out.println(" - Welcome to a simple automaton application!\n");
       System.out.println(" - Here you can test your automatons");
       System.out.println(" - First your next step:\n");
       System.out.println(" - 1 - Start a new automaton;");
-      System.out.println(" - 2 - Exit program;");
+      System.out.println(" - 2 - Exit program;\n");
+      
       return scanner.nextInt();
-    }
   }
 }

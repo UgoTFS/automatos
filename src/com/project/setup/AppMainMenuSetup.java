@@ -1,11 +1,13 @@
 package com.project.setup;
 
+import java.util.Scanner;
+
 import com.project.Interfaces.AppMenu;
 import com.project.service.AppAutomatonMenu;
 
 public class AppMainMenuSetup {
 
-  public void run(int mainMenuOption) {
+  public void run(int mainMenuOption, Scanner scanner) {
 
     boolean isRunning = true;
 
@@ -13,10 +15,10 @@ public class AppMainMenuSetup {
       switch (mainMenuOption) {
         case 1:
           AppMenu automatoMenu = new AppAutomatonMenu();
-          int automatonOption = automatoMenu.show();
+          int automatonOption = automatoMenu.show(scanner);
           System.out.println("The choosen options was: " + automatonOption);
           AppAutomatonSetup automatonOptionsSetup = new AppAutomatonSetup();
-          automatonOptionsSetup.run(automatonOption);
+          automatonOptionsSetup.run(automatonOption, scanner);
           break;
         case 2:
           System.out.println("Thank you for utilizing my automaton project!!!\n");
