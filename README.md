@@ -19,24 +19,23 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 ## Project Description / Descrição do projeto
 
-
 The automatons in this project are based on deterministic finite automaton(dfa), and it is an algorithms for a finite-state machine that accepts or rejects a given string of symbols.
 
-The notation used for this project is like the following: 
+The notation used for this project is like the following:
 
 M (Q, Σ, δ, s, F )
 
 Where:
 
-  ◽ Q = all states the machine have;
-  
-  ◽ Σ = alphabet accepted by the automaton;
+◽ Q = all states the machine have;
 
-  ◽ δ = is the machine state transition, with the form of( actual state, next state, char. );
+◽ Σ = alphabet accepted by the automaton;
 
-  ◽ s = the machine initial state;
+◽ δ = is the machine state transition, with the form of( actual state, next state, char. );
 
-  ◽ F = all the final states accepted by the machine;
+◽ s = the machine initial state;
+
+◽ F = all the final states accepted by the machine;
 
 ---
 
@@ -51,16 +50,16 @@ autômato.
 A notação usada para o autômato é da forma ,(Q, Σ, δ, s, F )M =
 onde:
 
-  ◽ Q = estados que o autômato possui;
-  
-  ◽ Σ = Alfabeto que o autômato aceita;
+◽ Q = estados que o autômato possui;
 
-  ◽ δ = transições entre os estados, e possui, estado atual, próximo estado, e
+◽ Σ = Alfabeto que o autômato aceita;
+
+◽ δ = transições entre os estados, e possui, estado atual, próximo estado, e
 caractere de leitura;
 
-  ◽ s = estado inicial do autômato;
-  
-  ◽ F = conjunto de estados finais do autômato;
+◽ s = estado inicial do autômato;
+
+◽ F = conjunto de estados finais do autômato;
 
 ## About the project / Sobre projeto
 

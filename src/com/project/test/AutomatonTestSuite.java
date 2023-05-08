@@ -5,15 +5,17 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.project.utils.AutomatonType;
+
 public class AutomatonTestSuite {
   private BufferedWriter testOutput;
   private String testFileName;
 
-  public AutomatonTestSuite() throws IOException{
-    this.testFileName = "test0.txt";
+  public AutomatonTestSuite(AutomatonType automatonType) throws IOException{
+    this.testFileName = automatonType.toString() + "_test_0.txt";
     for (int i = 0; hasTestFile(this.testFileName); i++) {
       System.out.println(this.testFileName);
-      this.testFileName = addExtension("test" + i);
+      this.testFileName = nameTestFile(automatonType, i);
     }
     System.out.println(this.testFileName);
     System.out.println("Saida loop nome...");
@@ -32,8 +34,8 @@ public class AutomatonTestSuite {
     return new File(testFileName).exists();
   }
 
-  public String addExtension(String filename) {
-    return filename + ".txt";
+  public String nameTestFile(AutomatonType automatonType, int testNumber) {
+    return automatonType.toString().toLowerCase() + "_test_" + testNumber + ".txt";
   }
 
   public void closeFile() throws IOException {

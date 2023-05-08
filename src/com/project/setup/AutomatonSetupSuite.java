@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
-public class AutomatonSetup {
+public class AutomatonSetupSuite {
   
   List<String> lines;
 
