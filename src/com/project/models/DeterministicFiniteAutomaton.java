@@ -67,16 +67,6 @@ public class DeterministicFiniteAutomaton implements Automaton{
   }
 
   @Override
-  public void resetAutomaton() {
-    setCurrentState(getInitialState());
-  }
-
-  @Override
-  public boolean isTestAccepted() {
-    return this.currentState.isFinal();
-  }
-
-  @Override
   public void setCurrentState(AutomatonState currentState) {
     this.currentState = currentState;
   }
@@ -86,9 +76,5 @@ public class DeterministicFiniteAutomaton implements Automaton{
     return this.currentState;
   }
 
-  @Override
-  public boolean isInputAccepted(String input) {
-    return getAlphabet().contains(input);
-  }
   
 }

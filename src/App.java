@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import com.project.Interfaces.AppMenu;
@@ -6,7 +7,7 @@ import com.project.service.AppMainMenu;
 import com.project.setup.AppMainMenuSetup;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
 
         try (Scanner scanner = new Scanner(System.in)) {
 
@@ -17,9 +18,8 @@ public class App {
             AppMainMenuSetup appSetup = new AppMainMenuSetup();
             appSetup.run(mainMenuOption, scanner);
 
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (IOException e) {
+            throw new IOException(e);
         }
     }
-
 }

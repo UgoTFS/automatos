@@ -19,9 +19,9 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 ## Project Description / Descrição do projeto
 
-The automatons in this project are based on deterministic finite automaton(dfa), and it is an algorithms for a finite-state machine that accepts or rejects a given string of symbols.
+The automatons in this project are based on deterministic finite automaton(dfa), push-down automatons(pda) and turing machines(tm), and it is an algorithms for a finite-state machine that accepts or rejects a given string of symbols.
 
-The notation used for this project is like the following:
+The notation used for dfa in this project is like the following:
 
 M (Q, Σ, δ, s, F )
 
@@ -47,7 +47,7 @@ do autômato, além de possuir o estado inicial, e os estados finais, estes últ
 indicando se a cadeia foi aceita ou não, e o primeiro, mostrando a configuração inicial do
 autômato.
 
-A notação usada para o autômato é da forma ,(Q, Σ, δ, s, F )M =
+A notação usada para o autômato deterministico finito é da forma ,(Q, Σ, δ, s, F )M =
 onde:
 
 ◽ Q = estados que o autômato possui;

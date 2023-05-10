@@ -18,8 +18,4 @@ public interface Automaton {
   public AutomatonState getInitialState();
   public AutomatonState getCurrentState();
 
-  public void resetAutomaton();
-  public boolean isInputAccepted(String input);
-  public boolean isTestAccepted();
-  
 }

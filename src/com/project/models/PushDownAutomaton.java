@@ -68,17 +68,6 @@ public class PushDownAutomaton implements Automaton {
   }
 
   @Override
-  public void resetAutomaton() {
-    setCurrentState(getInitialState());
-    this.stackMemoryDeque.clear();
-  }
-
-  @Override
-  public boolean isTestAccepted() {
-    return this.currentState.isFinal() && this.stackMemoryDeque.isEmpty();
-  }
-
-  @Override
   public void setCurrentState(AutomatonState currentState) {
     this.currentState = currentState;
   }
@@ -88,14 +77,7 @@ public class PushDownAutomaton implements Automaton {
     return this.currentState;
   }
 
-  @Override
-  public boolean isInputAccepted(String input) {
-    return getAlphabet().contains(input);
-  }
-
   public void setStackMemoryDeque(Deque<String> stack) {
     this.stackMemoryDeque = stack;
   }
-
-
 }
