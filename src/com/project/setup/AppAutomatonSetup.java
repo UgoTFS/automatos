@@ -9,14 +9,15 @@ import com.project.utils.AutomatonType;
 
 public class AppAutomatonSetup {
 
-  List<String> lines;
+  List<String> setupLines;
+  List<String> testLines;
 
   public void run(int automatonOption, Scanner scanner) throws IOException {
 
     AutomatonSetupSuite automatonSetupSuite = new AutomatonSetupSuite();
     AutomatonTestSuite testSuite;
 
-    System.out.println("Executing test suite...get the test files to view the results");
+    System.out.println("Executing tests...");
 
     switch (automatonOption) {
       case 1: /* DFA */
@@ -24,7 +25,7 @@ public class AppAutomatonSetup {
         testSuite = new AutomatonTestSuite(AutomatonType.DFA);
 
         testSuite.writeTestLine("Starting the deterministic finite automaton now...");
-        lines = automatonSetupSuite.getLines(scanner);
+        setupLines = automatonSetupSuite.getLines(scanner);
 
         break;
       case 2: /* PDA */
@@ -32,7 +33,7 @@ public class AppAutomatonSetup {
         testSuite = new AutomatonTestSuite(AutomatonType.PDA);
 
         testSuite.writeTestLine("Starting the push-down automaton now...");
-        lines = automatonSetupSuite.getLines(scanner);
+        setupLines = automatonSetupSuite.getLines(scanner);
 
         break;
       case 3: /* TM */
@@ -40,13 +41,15 @@ public class AppAutomatonSetup {
         testSuite = new AutomatonTestSuite(AutomatonType.TM);
 
         testSuite.writeTestLine("Starting the turing machine automaton now...");
-        lines = automatonSetupSuite.getLines(scanner);
+        setupLines = automatonSetupSuite.getLines(scanner);
 
         break;
       default:
         System.out.println("Opção inválida.");
         break;
     }
+
+    System.out.println("Tests executed successfully, check the tests files");
 
   }
 

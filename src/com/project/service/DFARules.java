@@ -1,10 +1,13 @@
 package com.project.service;
 
+import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.project.Interfaces.AutomatoRules;
 import com.project.Interfaces.Automaton;
 import com.project.Interfaces.AutomatonState;
+import com.project.Interfaces.AutomatonTransition;
+import com.project.test.AutomatonTestSuite;
 
 public class DFARules implements AutomatoRules {
 
@@ -19,11 +22,42 @@ public class DFARules implements AutomatoRules {
   }
 
   @Override
-  public void processInput(Automaton automaton, String input) {
+  public void processInput(Automaton automaton, String input, AutomatonTestSuite testSuite) throws IOException {
 
-    if (automaton.getAlphabet().contains(input) && isTransitionPossible(automaton, input)) {
-      // TODO: Implement this method
+    // implement test suite exit
+
+    testSuite.writeTestLine("Processing input " + input + " for current state " + automaton.getCurrentState());
+    int step = 1;
+    boolean isStringAccepted = true;
+
+    for (char charInput : input.toCharArray()) {
+
+      if (step == 1) {
+        testSuite.writeTestLine("String input to be tested: " + input);
+      }
+
+      testSuite.writeTestLine("--------------------------------");
+      testSuite.writeTestLine("Step " + step);
+      testSuite.writeTestLine("Character tested: " + charInput);
+      testSuite.writeTestLine("Current state: " + automaton.getCurrentState());
+      if (automaton.getAlphabet().contains((String.valueOf(charInput)))
+          && isTransitionPossible(automaton, String.valueOf(charInput))) {
+        testSuite.writeTestLine("Char accepted\n");
+        automaton.setCurrentState(getNextState(automaton, String.valueOf(charInput)));
+      } else {
+        testSuite.writeTestLine("Char not accepted\n");
+        isStringAccepted = false;
+      }
+      step++;
     }
+
+    if (isStringAccepted) {
+      testSuite.writeTestLine("String input accepted\n");
+    } else {
+      testSuite.writeTestLine("String input not accepted\n");
+    }
+    testSuite.writeTestLine("Test completed successfully\n");
+    testSuite.writeTestLine("--------------------------------");
   }
 
   @Override
@@ -40,5 +74,15 @@ public class DFARules implements AutomatoRules {
       }
     });
     return transitionFound.get();
+  }
+
+  @Override
+  public AutomatonState getNextState(Automaton automaton, String input) {
+    for (AutomatonTransition transition : automaton.getTransitions()) {
+      if (transition.getCurrentState().equals(automaton.getCurrentState())) {
+        return transition.getNextState();
+      }
+    }
+    return null;
   }
 }
