@@ -15,7 +15,6 @@ public class DeterministicFiniteAutomaton implements Automaton{
   private AutomatonState initialState;
   private AutomatonState currentState;
 
-
   @Override
   public void setStates(Set<AutomatonState> states) {
     this.statesSet = states;

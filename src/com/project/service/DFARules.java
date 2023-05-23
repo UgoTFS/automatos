@@ -33,12 +33,13 @@ public class DFARules implements AutomatoRules {
     for (char charInput : input.toCharArray()) {
 
       if (step == 1) {
+        reset(automaton);
         testSuite.writeTestLine("String input to be tested: " + input);
       }
 
       testSuite.writeTestLine("--------------------------------");
       testSuite.writeTestLine("Step " + step);
-      testSuite.writeTestLine("Character tested: " + charInput);
+      testSuite.writeTestLine("Character to be tested: " + charInput);
       testSuite.writeTestLine("Current state: " + automaton.getCurrentState());
       if (automaton.getAlphabet().contains((String.valueOf(charInput)))
           && isTransitionPossible(automaton, String.valueOf(charInput))) {
@@ -47,11 +48,12 @@ public class DFARules implements AutomatoRules {
       } else {
         testSuite.writeTestLine("Char not accepted\n");
         isStringAccepted = false;
+        break;
       }
       step++;
     }
 
-    if (isStringAccepted) {
+    if (isStringAccepted && isFinalState(automaton)) {
       testSuite.writeTestLine("String input accepted\n");
     } else {
       testSuite.writeTestLine("String input not accepted\n");
