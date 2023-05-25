@@ -17,26 +17,41 @@ public class DeterministicFiniteAutomaton implements Automaton{
 
   @Override
   public void setStates(Set<AutomatonState> states) {
+    if( states.isEmpty() ){
+      throw new IllegalArgumentException("States cannot be empty");
+    }
     this.statesSet = states;
   }
 
   @Override
   public void setAlphabet(Set<String> alphabet) {
+    if( alphabet.isEmpty() ){
+      throw new IllegalArgumentException("Alphabet cannot be empty");
+    }
     this.alphabetSet = alphabet;
   }
 
   @Override
   public void setInitialState(AutomatonState initialState) {
+    if( initialState == null ){
+      throw new IllegalArgumentException("Initial state cannot be null");
+    }
     this.initialState = initialState;
   }
 
   @Override
   public void settransitions(Set<AutomatonTransition> transitions) {
+    if( transitions.isEmpty() ){
+      throw new IllegalArgumentException("Transitions cannot be empty");
+    }
     this.transitionsSet = transitions;
   }
 
   @Override
   public void setAcceptedStates(Set<AutomatonState> acceptedStates) {
+    if( acceptedStates.isEmpty() ){
+      throw new IllegalArgumentException("Accepted states cannot be empty");
+    }
     this.acceptedStatesSet = acceptedStates;
   }
 

@@ -8,6 +8,9 @@ public class AutomatonStateImpl implements AutomatonState{
   private boolean isFinal;
 
   public AutomatonStateImpl(String stateLabel, boolean isFinal) {
+    if( stateLabel == null){
+      throw new IllegalArgumentException("stateLabel cannot be null");
+    }
     this.stateLabel = stateLabel;
     this.isFinal = isFinal;
   }

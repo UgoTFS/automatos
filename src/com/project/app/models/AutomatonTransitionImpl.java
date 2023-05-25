@@ -13,11 +13,17 @@ public class AutomatonTransitionImpl implements AutomatonTransition{
 
   @Override
   public void setCurrentState(AutomatonState state) {
+    if( state == null ){
+      throw new IllegalArgumentException("currentState cannot be null");
+    }
     this.currentState = state;
   }
 
   @Override
   public void setNextState(AutomatonState state) {
+    if( state == null ){
+      throw new IllegalArgumentException("nextState cannot be null");
+    }
     this.nextState = state;
   }
 
