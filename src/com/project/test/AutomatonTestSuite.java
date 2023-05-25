@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.project.utils.AutomatonType;
+import com.project.app.utils.AutomatonType;
 
 public class AutomatonTestSuite {
   private BufferedWriter testOutput;
@@ -18,7 +18,6 @@ public class AutomatonTestSuite {
       this.testFileName = nameTestFile(automatonType, i);
     }
     System.out.println(this.testFileName);
-    System.out.println("Saida loop nome...");
     this.testOutput = new BufferedWriter(new FileWriter(this.testFileName));
   }
 
