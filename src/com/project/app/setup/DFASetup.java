@@ -30,7 +30,20 @@ public class DFASetup implements AutomatonSetup {
 
       // setuplines(0) = states , (*) -> final states, first element = initial state
       if (i == 0) {
-        setAllStates(automaton, elements, finalStates, states);
+        for (int j = 0; j < elements.size(); j++) {
+
+          AutomatonState automatonState = new AutomatonStateImpl(elements.get(j));
+
+          if (automatonState.isFinal()) {
+            finalStates.add(automatonState);
+          }
+
+          if (j == 0) {
+            automaton.setInitialState(automatonState);
+          }
+
+          states.add(automatonState);
+        }
       }
       // setuplines(1) = alphabet
       else if (i == 1) {
@@ -40,38 +53,16 @@ public class DFASetup implements AutomatonSetup {
       // setuplines(2+) = transitions
       else {
         singleTransition.addAll(Arrays.asList(setupLines.get(i).split(" ")));
-        transitions.add(
-            new AutomatonTransitionImpl(singleTransition.get(0), singleTransition.get(1), singleTransition.get(2)));
+        // singleTransition: (0) -> current state, (1) -> input, (2) -> next state
+        AutomatonState currentState = states.stream()
+            .filter(element -> element.getLabel().equals(singleTransition.get(0)))
+            .findAny().orElse(null);
+        AutomatonState nextState = states.stream()
+            .filter(element -> element.getLabel().equals(singleTransition.get(2)))
+            .findAny().orElse(null);
+        new AutomatonTransitionImpl(currentState, nextState, singleTransition.get(1));
       }
     }
-    automaton.settransitions(transitions);
+    automaton.setTransitions(transitions);
   }
-
-  public void setAllStates(Automaton automaton, List<String> elements, Set<AutomatonState> finalStates,
-      Set<AutomatonState> states) {
-
-    var terminal = "*";
-
-    for (int j = 0; j < elements.size(); j++) {
-
-      if (elements.get(j).contains(terminal)) {
-        String temp = elements.get(j).replace("*", "");
-        finalStates.add(new AutomatonStateImpl(temp, true));
-        states.add(new AutomatonStateImpl(temp, true));
-      } else {
-        finalStates.add(new AutomatonStateImpl(elements.get(j), false));
-        states.add(new AutomatonStateImpl(elements.get(j), false));
-      }
-
-      if (j == 0) {
-        if (elements.get(j).contains(terminal)) {
-          automaton.setInitialState(new AutomatonStateImpl(elements.get(0), true));
-        } else {
-          automaton.setInitialState(new AutomatonStateImpl(elements.get(0), false));
-        }
-      }
-
-    }
-  }
-
 }

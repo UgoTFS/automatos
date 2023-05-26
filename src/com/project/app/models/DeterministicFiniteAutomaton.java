@@ -40,7 +40,7 @@ public class DeterministicFiniteAutomaton implements Automaton{
   }
 
   @Override
-  public void settransitions(Set<AutomatonTransition> transitions) {
+  public void setTransitions(Set<AutomatonTransition> transitions) {
     if( transitions.isEmpty() ){
       throw new IllegalArgumentException("Transitions cannot be empty");
     }
@@ -82,6 +82,9 @@ public class DeterministicFiniteAutomaton implements Automaton{
 
   @Override
   public void setCurrentState(AutomatonState currentState) {
+    if( currentState == null ){
+      throw new IllegalArgumentException("Current state cannot be null");
+    }
     this.currentState = currentState;
   }
 

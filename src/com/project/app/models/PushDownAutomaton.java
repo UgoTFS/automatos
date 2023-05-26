@@ -33,7 +33,7 @@ public class PushDownAutomaton implements Automaton {
   }
 
   @Override
-  public void settransitions(Set<AutomatonTransition> transitions) {
+  public void setTransitions(Set<AutomatonTransition> transitions) {
     this.transitionsSet = transitions;
   }
 

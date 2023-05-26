@@ -7,7 +7,7 @@ public interface Automaton {
   public void setStates(Set<AutomatonState> state);
   public void setAlphabet(Set<String> alphabet);
   public void setInitialState(AutomatonState initialState);
-  public void settransitions(Set<AutomatonTransition> transitions);
+  public void setTransitions(Set<AutomatonTransition> transitions);
   public void setAcceptedStates(Set<AutomatonState> acceptedStates);
   public void setCurrentState(AutomatonState currentState);
 

@@ -8,7 +8,10 @@ public class AutomatonTransitionImpl implements AutomatonTransition{
   private AutomatonState nextState;
   private String input;
   
-  public AutomatonTransitionImpl(String estadoAtual, String proxEstado, String entrada){
+  public AutomatonTransitionImpl(AutomatonState currentState, AutomatonState nexState, String entrada){
+    setCurrentState(currentState);
+    setNextState(nexState);
+    setInput(entrada);
   }
 
   @Override
@@ -45,5 +48,42 @@ public class AutomatonTransitionImpl implements AutomatonTransition{
   @Override
   public AutomatonState getNextState() {
     return this.nextState;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((currentState == null) ? 0 : currentState.hashCode());
+    result = prime * result + ((nextState == null) ? 0 : nextState.hashCode());
+    result = prime * result + ((input == null) ? 0 : input.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    AutomatonTransitionImpl other = (AutomatonTransitionImpl) obj;
+    if (currentState == null) {
+      if (other.currentState != null)
+        return false;
+    } else if (!currentState.equals(other.currentState))
+      return false;
+    if (nextState == null) {
+      if (other.nextState != null)
+        return false;
+    } else if (!nextState.equals(other.nextState))
+      return false;
+    if (input == null) {
+      if (other.input != null)
+        return false;
+    } else if (!input.equals(other.input))
+      return false;
+    return true;
   }
 }
