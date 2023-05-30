@@ -71,7 +71,7 @@ public class DFARules implements AutomatoRules {
   public boolean isTransitionPossible(Automaton automaton, String input) {
     AtomicBoolean transitionFound = new AtomicBoolean(false);
     automaton.getTransitions().stream().forEach(transition -> {
-      if (transition.getInput().equals(input)) {
+      if ( automaton.getCurrentState().equals(transition.getCurrentState()) && transition.getInput().equals(input)) {
         transitionFound.set(true);
       }
     });
