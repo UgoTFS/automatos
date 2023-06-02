@@ -8,11 +8,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import com.project.test.AutomatonTestSuite;
+
 public class StringInputSuite {
   
   List<String> lines;
 
-  public List<String> getLines(Scanner scanner) {
+  public List<String> getLines(Scanner scanner, AutomatonTestSuite testSuite) {
 
     System.out.println("Now we need to get the Strings input to test the automaton,");
     System.out.println("please insert the file name with the String to be tested,");

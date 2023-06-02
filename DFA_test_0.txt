@@ -1,0 +1,722 @@
+Starting the deterministic finite automaton now...
+
+The settings gotten for the automaton: 
+States names: q0 *q1 q2 q3
+Alphabetic: a b c d
+transitions from the file: 
+q0 a q1
+q1 b q2
+q2 c q3
+q3 c q3
+q3 d q0
+Processing input abcdabc for current state q0
+String input to be tested: abcdabc
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abdabcd for current state q3
+String input to be tested: abdabcd
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: d
+Current state: q2
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input  for current state q2
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcdabcccccda for current state q2
+String input to be tested: abcdabcccccda
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 8
+Character to be tested: c
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 9
+Character to be tested: c
+Current state: q0
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcdabccdabb for current state q0
+String input to be tested: abcdabccdabb
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 8
+Character to be tested: c
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 9
+Character to be tested: d
+Current state: q0
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcccdabccda for current state q0
+String input to be tested: abcccdabccda
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: c
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: c
+Current state: q0
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda for current state q0
+String input to be tested: abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 8
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 9
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 10
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 11
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 12
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 13
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 14
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 15
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 16
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 17
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 18
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 19
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 20
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 21
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 22
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 23
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 24
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 25
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 26
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 27
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 28
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 29
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 30
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 31
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 32
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 33
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 34
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 35
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 36
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 37
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 38
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 39
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 40
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 41
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 42
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 43
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 44
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 45
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 46
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 47
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 48
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 49
+Character to be tested: a
+Current state: q0
+Char accepted
+
+String input accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcdabcabcdabcabcdabcccccdad for current state q1
+String input to be tested: abcdabcabcdabcabcdabcccccdad
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 8
+Character to be tested: a
+Current state: q3
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcdabcabcdabcccaw for current state q3
+String input to be tested: abcdabcabcdabcccaw
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 8
+Character to be tested: a
+Current state: q3
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------
+Processing input abcdabcccabcdabccda for current state q3
+String input to be tested: abcdabcccabcdabccda
+--------------------------------
+Step 1
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 2
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 3
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 4
+Character to be tested: d
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 5
+Character to be tested: a
+Current state: q0
+Char accepted
+
+--------------------------------
+Step 6
+Character to be tested: b
+Current state: q1
+Char accepted
+
+--------------------------------
+Step 7
+Character to be tested: c
+Current state: q2
+Char accepted
+
+--------------------------------
+Step 8
+Character to be tested: c
+Current state: q3
+Char accepted
+
+--------------------------------
+Step 9
+Character to be tested: c
+Current state: q0
+Char not accepted
+
+String input not accepted
+
+Test completed successfully
+
+--------------------------------

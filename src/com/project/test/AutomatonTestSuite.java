@@ -15,7 +15,7 @@ public class AutomatonTestSuite {
     this.testFileName = automatonType.toString() + "_test_0.txt";
     for (int i = 0; hasTestFile(this.testFileName); i++) {
       System.out.println(this.testFileName);
-      this.testFileName = nameTestFile(automatonType, i);
+      this.testFileName = nameTestFile(automatonType, i).toLowerCase();
     }
     System.out.println(this.testFileName);
     this.testOutput = new BufferedWriter(new FileWriter(this.testFileName));

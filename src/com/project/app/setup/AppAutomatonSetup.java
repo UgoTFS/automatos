@@ -31,9 +31,9 @@ public class AppAutomatonSetup {
 
         testSuite = new AutomatonTestSuite(AutomatonType.DFA);
 
-        testSuite.writeTestLine("Starting the deterministic finite automaton now...");
-        setupLines = automatonSetupSuite.getLines(scanner);
-        testLines = stringInputSuite.getLines(scanner);
+        testSuite.writeTestLine("Starting the deterministic finite automaton now...\n");
+        setupLines = automatonSetupSuite.getLines(scanner, testSuite);
+        testLines = stringInputSuite.getLines(scanner, testSuite);
 
         automatonSetup.initialize(dfAutomatom, setupLines);
 
@@ -48,8 +48,8 @@ public class AppAutomatonSetup {
         testSuite = new AutomatonTestSuite(AutomatonType.PDA);
 
         testSuite.writeTestLine("Starting the push-down automaton now...");
-        setupLines = automatonSetupSuite.getLines(scanner);
-        testLines = stringInputSuite.getLines(scanner);
+        setupLines = automatonSetupSuite.getLines(scanner, testSuite);
+        testLines = stringInputSuite.getLines(scanner, testSuite);
 
         break;
       case 3: /* TM */
@@ -57,10 +57,13 @@ public class AppAutomatonSetup {
         testSuite = new AutomatonTestSuite(AutomatonType.TM);
 
         testSuite.writeTestLine("Starting the turing machine automaton now...");
-        setupLines = automatonSetupSuite.getLines(scanner);
-        testLines = stringInputSuite.getLines(scanner);
+        setupLines = automatonSetupSuite.getLines(scanner, testSuite);
+        testLines = stringInputSuite.getLines(scanner, testSuite);
 
         break;
+      case 4: /* back */
+        System.out.println("Returning.");
+        return;
       default:
         System.out.println("Opção inválida.");
         break;

@@ -26,7 +26,6 @@ public class DFARules implements AutomatoRules {
 
     // implement test suite exit
 
-    testSuite.writeTestLine("Processing input " + input + " for current state " + automaton.getCurrentState());
     int step = 1;
     boolean isStringAccepted = true;
 
@@ -34,19 +33,20 @@ public class DFARules implements AutomatoRules {
 
       if (step == 1) {
         reset(automaton);
+        testSuite.writeTestLine("New test will start now. \n");
         testSuite.writeTestLine("String input to be tested: " + input);
       }
 
       testSuite.writeTestLine("--------------------------------");
       testSuite.writeTestLine("Step " + step);
       testSuite.writeTestLine("Character to be tested: " + charInput);
-      testSuite.writeTestLine("Current state: " + automaton.getCurrentState());
+      testSuite.writeTestLine("Current state: " + automaton.getCurrentState().getLabel());
       if (automaton.getAlphabet().contains((String.valueOf(charInput)))
           && isTransitionPossible(automaton, String.valueOf(charInput))) {
-        testSuite.writeTestLine("Char accepted\n");
+        testSuite.writeTestLine("Char accepted");
         automaton.setCurrentState(getNextState(automaton, String.valueOf(charInput)));
       } else {
-        testSuite.writeTestLine("Char not accepted\n");
+        testSuite.writeTestLine("Char not accepted");
         isStringAccepted = false;
         break;
       }
@@ -71,7 +71,7 @@ public class DFARules implements AutomatoRules {
   public boolean isTransitionPossible(Automaton automaton, String input) {
     AtomicBoolean transitionFound = new AtomicBoolean(false);
     automaton.getTransitions().stream().forEach(transition -> {
-      if ( automaton.getCurrentState().equals(transition.getCurrentState()) && transition.getInput().equals(input)) {
+      if (automaton.getCurrentState().equals(transition.getCurrentState()) && transition.getInput().equals(input)) {
         transitionFound.set(true);
       }
     });

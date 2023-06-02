@@ -2,6 +2,7 @@ package com.project.test.service;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,8 @@ import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.AutomatonTransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
 import com.project.app.service.DFARules;
+import com.project.app.utils.AutomatonType;
+import com.project.test.AutomatonTestSuite;
 
 public class DFARulesTest {
 
@@ -34,9 +37,10 @@ public class DFARulesTest {
   static AutomatonState state4;
 
   private static DFARules automatonMotor;
+  private static AutomatonTestSuite testFile;
 
   @BeforeAll
-  public static void setUp() {
+  public static void setUp() throws IOException {
 
     automaton = new DeterministicFiniteAutomaton();
 
@@ -60,6 +64,8 @@ public class DFARulesTest {
     alphabet.add("c");
     alphabet.add("d");
 
+    automaton.setAlphabet(alphabet);
+
     automatonAcceptedStates.add(state2);
 
     automaton.setAcceptedStates(automatonAcceptedStates);
@@ -79,6 +85,8 @@ public class DFARulesTest {
     automaton.setTransitions(automatonTransitions);
 
     automatonMotor = new DFARules();
+
+    testFile = new AutomatonTestSuite(AutomatonType.DFA);
 
   }
 
@@ -153,6 +161,14 @@ public class DFARulesTest {
     automatonMotor.reset(automaton);
 
     assert (automaton.getCurrentState().equals(automaton.getInitialState()));
+
+  }
+
+  @Test
+  @DisplayName("test for writing a test file")
+  void testProcessInput() throws IOException {
+
+    automatonMotor.processInput(automaton, "abcdabc", testFile);
 
   }
 }

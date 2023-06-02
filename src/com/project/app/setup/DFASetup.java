@@ -57,7 +57,6 @@ public class DFASetup implements AutomatonSetup {
     automaton.setStates(states);
     automaton.setAcceptedStates(finalStates);
     automaton.setTransitions(transitions);
-    System.out.println("automaton transitions: " + transitions);
 
   }
 

@@ -8,7 +8,7 @@ import com.project.app.service.AppAutomatonMenu;
 
 public class AppMainMenuSetup {
 
-  public void run(int mainMenuOption, Scanner scanner) throws IOException{
+  public void run(int mainMenuOption, Scanner scanner) throws IOException {
 
     boolean isRunning = true;
 
@@ -19,6 +19,9 @@ public class AppMainMenuSetup {
           int automatonOption = automatoMenu.show(scanner);
           System.out.println("The choosen options was: " + automatonOption);
           AppAutomatonSetup automatonOptionsSetup = new AppAutomatonSetup();
+          if (automatonOption == 4) {
+            break;
+          }
           automatonOptionsSetup.run(automatonOption, scanner);
           break;
         case 2:

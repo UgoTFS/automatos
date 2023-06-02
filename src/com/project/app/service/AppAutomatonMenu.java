@@ -13,6 +13,7 @@ public class AppAutomatonMenu implements AppMenu {
     System.out.println(" - 1. Deterministic Finite Automaton;");
     System.out.println(" - 2. Push Down Automaton;");
     System.out.println(" - 3. Turing Machine;\n");
+    System.out.println(" - 4. Back;\n");
 
     return scanner.nextInt();
   }
