@@ -3,12 +3,12 @@ package com.project.app.models;
 import com.project.app.Interfaces.AutomatonState;
 import com.project.app.Interfaces.AutomatonTransition;
 
-public class AutomatonTransitionImpl implements AutomatonTransition{
+public class DFATransitionImpl implements AutomatonTransition{
   private AutomatonState currentState;
   private AutomatonState nextState;
   private String input;
   
-  public AutomatonTransitionImpl(AutomatonState currentState, AutomatonState nexState, String entrada){
+  public DFATransitionImpl(AutomatonState currentState, AutomatonState nexState, String entrada){
     setCurrentState(currentState);
     setNextState(nexState);
     setInput(entrada);
@@ -68,7 +68,7 @@ public class AutomatonTransitionImpl implements AutomatonTransition{
       return false;
     if (getClass() != obj.getClass())
       return false;
-    AutomatonTransitionImpl other = (AutomatonTransitionImpl) obj;
+    DFATransitionImpl other = (DFATransitionImpl) obj;
     if (currentState == null) {
       if (other.currentState != null)
         return false;

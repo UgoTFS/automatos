@@ -11,7 +11,7 @@ import com.project.app.Interfaces.AutomatonSetup;
 import com.project.app.Interfaces.AutomatonState;
 import com.project.app.Interfaces.AutomatonTransition;
 import com.project.app.models.AutomatonStateImpl;
-import com.project.app.models.AutomatonTransitionImpl;
+import com.project.app.models.DFATransitionImpl;
 
 public class DFASetup implements AutomatonSetup {
 
@@ -48,7 +48,7 @@ public class DFASetup implements AutomatonSetup {
             .filter(element -> element.getLabel().equals(singleTransition.get(2)))
             .findAny().orElse(null);
         transitions
-            .add(new AutomatonTransitionImpl(currentStateTransition, nextStateTransition, singleTransition.get(1)));
+            .add(new DFATransitionImpl(currentStateTransition, nextStateTransition, singleTransition.get(1)));
         singleTransition.clear();
       }
 

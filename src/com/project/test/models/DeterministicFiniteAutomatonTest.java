@@ -14,7 +14,7 @@ import com.project.app.Interfaces.Automaton;
 import com.project.app.Interfaces.AutomatonState;
 import com.project.app.Interfaces.AutomatonTransition;
 import com.project.app.models.AutomatonStateImpl;
-import com.project.app.models.AutomatonTransitionImpl;
+import com.project.app.models.DFATransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
 
 public class DeterministicFiniteAutomatonTest {
@@ -63,11 +63,11 @@ public class DeterministicFiniteAutomatonTest {
     initialState = state1;
     currentState = state1;
 
-    automatonTransitions.add(new AutomatonTransitionImpl(state1, state2, "a"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state1, state3, "b"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state3, state4, "c"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state4, state4, "c"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state4, state1, "d"));
+    automatonTransitions.add(new DFATransitionImpl(state1, state2, "a"));
+    automatonTransitions.add(new DFATransitionImpl(state1, state3, "b"));
+    automatonTransitions.add(new DFATransitionImpl(state3, state4, "c"));
+    automatonTransitions.add(new DFATransitionImpl(state4, state4, "c"));
+    automatonTransitions.add(new DFATransitionImpl(state4, state1, "d"));
 
   }
 
@@ -90,11 +90,11 @@ public class DeterministicFiniteAutomatonTest {
     assert (automaton.getStates().containsAll(stateComparator));
 
     Set<AutomatonTransition> transitionComparator = new HashSet<>();
-    transitionComparator.add(new AutomatonTransitionImpl(state1, state2, "a"));
-    transitionComparator.add(new AutomatonTransitionImpl(state1, state3, "b"));
-    transitionComparator.add(new AutomatonTransitionImpl(state3, state4, "c"));
-    transitionComparator.add(new AutomatonTransitionImpl(state4, state4, "c"));
-    transitionComparator.add(new AutomatonTransitionImpl(state4, state1, "d"));
+    transitionComparator.add(new DFATransitionImpl(state1, state2, "a"));
+    transitionComparator.add(new DFATransitionImpl(state1, state3, "b"));
+    transitionComparator.add(new DFATransitionImpl(state3, state4, "c"));
+    transitionComparator.add(new DFATransitionImpl(state4, state4, "c"));
+    transitionComparator.add(new DFATransitionImpl(state4, state1, "d"));
 
     assert (automaton.getTransitions().containsAll(transitionComparator));
 

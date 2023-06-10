@@ -15,6 +15,8 @@ public class PushDownAutomaton implements Automaton {
   private AutomatonState initialState;
   private AutomatonState currentState;
 
+  private String initialSymbol;
+  private Set<String> stackAlphabetSet;
   private Deque<String> stackMemoryDeque;
 
   @Override
@@ -77,7 +79,43 @@ public class PushDownAutomaton implements Automaton {
     return this.currentState;
   }
 
+  public Set<String> getStackAlphabetSet() {
+    return stackAlphabetSet;
+  }
+
+  public void setStackAlphabetSet(Set<String> stackAlphabetSet) {
+    this.stackAlphabetSet = stackAlphabetSet;
+  }
+
   public void setStackMemoryDeque(Deque<String> stack) {
     this.stackMemoryDeque = stack;
   }
+
+  public String getInitialSymbol() {
+    return initialSymbol;
+  }
+
+  public void setInitialSymbol(String initialSymbol) {
+    this.initialSymbol = initialSymbol;
+  }
+
+  public Deque<String> getStackMemoryDeque() {
+    return stackMemoryDeque;
+  }
+
+  public void addStackMemoryElement(String value) {
+    this.stackMemoryDeque.push(value);
+  }
+
+  public String removeStackMemoryElement(){
+    if(!this.stackMemoryDeque.peek().equals(this.getInitialSymbol())){
+      return this.stackMemoryDeque.pop();
+    }
+    return null;
+  }
+
+  public boolean equalsTopStackMemoryElement(String value){
+    return this.stackMemoryDeque.peek().equals(value);
+  }
+
 }

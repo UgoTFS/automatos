@@ -14,7 +14,7 @@ import com.project.app.Interfaces.Automaton;
 import com.project.app.Interfaces.AutomatonState;
 import com.project.app.Interfaces.AutomatonTransition;
 import com.project.app.models.AutomatonStateImpl;
-import com.project.app.models.AutomatonTransitionImpl;
+import com.project.app.models.DFATransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
 import com.project.app.service.DFARules;
 import com.project.app.utils.AutomatonType;
@@ -76,11 +76,11 @@ public class DFARulesTest {
     automaton.setInitialState(initialState);
     automaton.setCurrentState(currentState);
 
-    automatonTransitions.add(new AutomatonTransitionImpl(state1, state2, "a"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state2, state3, "b"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state3, state4, "c"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state4, state4, "c"));
-    automatonTransitions.add(new AutomatonTransitionImpl(state4, state1, "d"));
+    automatonTransitions.add(new DFATransitionImpl(state1, state2, "a"));
+    automatonTransitions.add(new DFATransitionImpl(state2, state3, "b"));
+    automatonTransitions.add(new DFATransitionImpl(state3, state4, "c"));
+    automatonTransitions.add(new DFATransitionImpl(state4, state4, "c"));
+    automatonTransitions.add(new DFATransitionImpl(state4, state1, "d"));
 
     automaton.setTransitions(automatonTransitions);
 
