@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.PDATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.PDATransitionImpl;
 
@@ -31,17 +31,14 @@ public class PDATransitionTest {
   @DisplayName("Simple test for a transition with current state q0,not final , next state q1,final and input 0, topqueue null, and inputqueue A")
   public void simpleTransitionTest() {
 
-    AutomatonTransition automatonTransition = new PDATransitionImpl(state1, state2, "0", null, "A");
+    PDATransition automatonTransition = new PDATransitionImpl(state1, state2, "0", null, "A");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state2);
     assertEquals(automatonTransition.getInput(), "0");
 
-    if(automatonTransition instanceof PDATransitionImpl) {
-      PDATransitionImpl pdaTransitionImpl = (PDATransitionImpl)automatonTransition;
-      assertEquals(pdaTransitionImpl.getInputQueue(), "A");
-      assertEquals(pdaTransitionImpl.getTopQueue(), null);
-    }
+    assertEquals(automatonTransition.getInputQueue(), "A");
+    assertEquals(automatonTransition.getTopQueue(), null);
 
   }
 
@@ -49,34 +46,28 @@ public class PDATransitionTest {
   @DisplayName("Simple test for a transition with current state q0,not final, next state q1,final and input 1")
   public void simpleTransitionTest2() {
 
-    AutomatonTransition automatonTransition = new PDATransitionImpl(state1, state2, "1", "A", "AA");
+    PDATransition automatonTransition = new PDATransitionImpl(state1, state2, "1", "A", "AA");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state2);
     assertEquals(automatonTransition.getInput(), "1");
 
-    if(automatonTransition instanceof PDATransitionImpl) {
-      PDATransitionImpl pdaTransitionImpl = (PDATransitionImpl)automatonTransition;
-      assertEquals(pdaTransitionImpl.getInputQueue(), "AA");
-      assertEquals(pdaTransitionImpl.getTopQueue(), "A");
-    }
+    assertEquals(automatonTransition.getInputQueue(), "AA");
+    assertEquals(automatonTransition.getTopQueue(), "A");
   }
 
   @Test
   @DisplayName("Simple test for a transition with current state q0,not final, next state q0,not final and input 1")
   public void transitionToSelf() {
 
-    AutomatonTransition automatonTransition = new PDATransitionImpl(state1, state1, "1", "A", "BA");
+    PDATransition automatonTransition = new PDATransitionImpl(state1, state1, "1", "A", "BA");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state1);
     assertEquals(automatonTransition.getInput(), "1");
 
-    if(automatonTransition instanceof PDATransitionImpl) {
-      PDATransitionImpl pdaTransitionImpl = (PDATransitionImpl)automatonTransition;
-      assertEquals(pdaTransitionImpl.getInputQueue(), "BA");
-      assertEquals(pdaTransitionImpl.getTopQueue(), "A");
-    }
+    assertEquals(automatonTransition.getInputQueue(), "BA");
+    assertEquals(automatonTransition.getTopQueue(), "A");
   }
 
   @Test
@@ -105,16 +96,13 @@ public class PDATransitionTest {
   @DisplayName("Simple test for a transition with current state q0, not final, next state q1, final and input null")
   public void transitionWithouInput() {
 
-    AutomatonTransition automatonTransition = new PDATransitionImpl(state1, state2, null, null, "A");
+    PDATransition automatonTransition = new PDATransitionImpl(state1, state2, null, null, "A");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state2);
     assertEquals(automatonTransition.getInput(), null);
-
-    if(automatonTransition instanceof PDATransitionImpl) {
-      PDATransitionImpl pdaTransitionImpl = (PDATransitionImpl)automatonTransition;
-      assertEquals(pdaTransitionImpl.getInputQueue(), "A");
-      assertEquals(pdaTransitionImpl.getTopQueue(), null);
-    }
+    
+    assertEquals(automatonTransition.getInputQueue(), "A");
+    assertEquals(automatonTransition.getTopQueue(), null);
   }
 }

@@ -10,22 +10,22 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.project.app.Interfaces.Automaton;
+import com.project.app.Interfaces.DFAutomaton;
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.DFATransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
-import com.project.app.setup.DFASetup;
+import com.project.app.setup.DFASetupImpl;
 
 public class DFASetupTest {
 
   private static Set<AutomatonState> automatonStates;
-  private static Set<AutomatonTransition> automatonTransitions;
+  private static Set<DFATransition> automatonTransitions;
   private static Set<AutomatonState> automatonAcceptedStates;
   private static Set<String> alphabet;
 
-  private static Automaton automaton;
+  private static DFAutomaton automaton;
   private static AutomatonState initialState;
   private static AutomatonState currentState;
 
@@ -79,12 +79,12 @@ public class DFASetupTest {
     automaton.setAlphabet(alphabet);
     automaton.setStates(automatonStates);
     automaton.setInitialState(initialState);
-    automaton.setTransitions(automatonTransitions);
+    automaton.setDFATransitions(automatonTransitions);
     automaton.setAcceptedStates(automatonAcceptedStates);
     automaton.setCurrentState(currentState);
 
-    Automaton automatonTest = new DeterministicFiniteAutomaton();
-    DFASetup automatonSetup = new DFASetup();
+    DFAutomaton automatonTest = new DeterministicFiniteAutomaton();
+    DFASetupImpl automatonSetup = new DFASetupImpl();
 
     List<String> lines = new ArrayList<>();
     lines.add(0, "q0 *q1 q2 q3");
@@ -100,7 +100,7 @@ public class DFASetupTest {
     System.out.println("automaton test: states: " + automatonTest.getStates());
     System.out.println("automaton test: alphabet: " + automatonTest.getAlphabet());
     System.out.println("automaton test: accepted states: " + automatonTest.getAcceptedStates());
-    System.out.println("automaton test: transitions: " + automatonTest.getTransitions());
+    System.out.println("automaton test: transitions: " + automatonTest.getDFATransitions());
     System.out.println("automaton test: initial state: " + automatonTest.getInitialState());
     System.out.println("automaton test: current state: " + automatonTest.getCurrentState());
 
@@ -111,10 +111,10 @@ public class DFASetupTest {
 
     assert (automaton.getInitialState().equals(automatonTest.getInitialState()));
     assert (automaton.getStates().equals(automatonTest.getStates()));
-    System.out.println("automaton transition: " + automaton.getTransitions());
-    System.out.println("automaton test: " + automatonTest.getTransitions());
-    System.out.println("test transitions: " + automaton.getTransitions().equals(automatonTest.getTransitions()));
-    assert (automaton.getTransitions().equals(automatonTest.getTransitions()));
+    System.out.println("automaton transition: " + automaton.getDFATransitions());
+    System.out.println("automaton test: " + automatonTest.getDFATransitions());
+    System.out.println("test transitions: " + automaton.getDFATransitions().equals(automatonTest.getDFATransitions()));
+    assert (automaton.getDFATransitions().equals(automatonTest.getDFATransitions()));
     
     
   }

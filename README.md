@@ -19,6 +19,8 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 ## Project Description / Descrição do projeto
 
+## Deterministic Finite Automaton / Automato Finito Deterministico
+
 The automatons in this project are based on deterministic finite automaton(dfa), push-down automatons(pda) and turing machines(tm), and it is an algorithms for a finite-state machine that accepts or rejects a given string of symbols.
 
 The notation used for dfa in this project is like the following:
@@ -60,6 +62,24 @@ caractere de leitura;
 ◽ s = estado inicial do autômato;
 
 ◽ F = conjunto de estados finais do autômato;
+
+## Push-Down Automaton / Automaton de pilha
+
+For the push-down automatons we are going to use the following notation:
+
+◽ Q = set of states
+
+◽ ∑ = set of input symbols
+
+◽ Γ = set of pushdown symbols (which can be pushed and popped from stack)
+
+◽ q0 = initial state
+
+◽ Z = initial pushdown symbol (which is initially present in stack) -- for this project all initial pushdown symbol will be "^"
+
+◽ F = set of final states
+
+◽ δ = transition function which maps Q x {Σ ∪ ∈} x Γ into Q x Γ*. In a given state, PDA will read input symbol and stack symbol (top of the stack) and move to a new state and change the symbol of stack.
 
 ## About the project / Sobre projeto
 

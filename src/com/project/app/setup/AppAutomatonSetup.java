@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.project.app.models.DeterministicFiniteAutomaton;
+import com.project.app.models.PushDownAutomaton;
 import com.project.app.service.DFARules;
 import com.project.app.utils.AutomatonType;
 import com.project.test.AutomatonTestSuite;
@@ -26,8 +27,8 @@ public class AppAutomatonSetup {
       case 1: /* DFA */
 
         DeterministicFiniteAutomaton dfAutomatom = new DeterministicFiniteAutomaton();
-        DFASetup automatonSetup = new DFASetup();
-        DFARules automatonMotor = new DFARules();
+        DFASetupImpl dfaSetup = new DFASetupImpl();
+        DFARules dfaMotor = new DFARules();
 
         testSuite = new AutomatonTestSuite(AutomatonType.DFA);
 
@@ -35,21 +36,26 @@ public class AppAutomatonSetup {
         setupLines = automatonSetupSuite.getLines(scanner, testSuite);
         testLines = stringInputSuite.getLines(scanner, testSuite);
 
-        automatonSetup.initialize(dfAutomatom, setupLines);
+        dfaSetup.initialize(dfAutomatom, setupLines);
 
         for (String line : testLines) {
-          automatonMotor.processInput(dfAutomatom, line, testSuite);
+          dfaMotor.processInput(dfAutomatom, line, testSuite);
         }
 
         testSuite.closeFile();
         break;
       case 2: /* PDA */
 
+        PushDownAutomaton pdAutomaton = new PushDownAutomaton();
+        PDASetupImpl pdaSetup = new PDASetupImpl();
+
         testSuite = new AutomatonTestSuite(AutomatonType.PDA);
 
         testSuite.writeTestLine("Starting the push-down automaton now...");
         setupLines = automatonSetupSuite.getLines(scanner, testSuite);
         testLines = stringInputSuite.getLines(scanner, testSuite);
+
+        pdaSetup.initialize(pdAutomaton, setupLines);
 
         break;
       case 3: /* TM */

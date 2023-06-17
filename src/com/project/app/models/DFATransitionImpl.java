@@ -1,9 +1,9 @@
 package com.project.app.models;
 
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 
-public class DFATransitionImpl implements AutomatonTransition{
+public class DFATransitionImpl implements DFATransition{
   private AutomatonState currentState;
   private AutomatonState nextState;
   private String input;

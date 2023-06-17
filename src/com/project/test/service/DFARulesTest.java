@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.project.app.Interfaces.Automaton;
+import com.project.app.Interfaces.DFAutomaton;
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.DFATransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
@@ -23,11 +23,11 @@ import com.project.test.AutomatonTestSuite;
 public class DFARulesTest {
 
   private static Set<AutomatonState> automatonStates;
-  private static Set<AutomatonTransition> automatonTransitions;
+  private static Set<DFATransition> automatonTransitions;
   private static Set<AutomatonState> automatonAcceptedStates;
   private static Set<String> alphabet;
 
-  private static Automaton automaton;
+  private static DFAutomaton automaton;
   private static AutomatonState initialState;
   private static AutomatonState currentState;
 
@@ -82,7 +82,7 @@ public class DFARulesTest {
     automatonTransitions.add(new DFATransitionImpl(state4, state4, "c"));
     automatonTransitions.add(new DFATransitionImpl(state4, state1, "d"));
 
-    automaton.setTransitions(automatonTransitions);
+    automaton.setDFATransitions(automatonTransitions);
 
     automatonMotor = new DFARules();
 

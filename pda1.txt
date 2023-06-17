@@ -1,0 +1,7 @@
+q0 q1 *q2
+0 1
+A
+q0 0 q1 ^ A^
+q1 0 q1 A AA
+q1 1 q2 A null
+q2 1 q2 ^ ^

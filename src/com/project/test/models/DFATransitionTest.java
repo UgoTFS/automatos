@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.DFATransitionImpl;
 
@@ -31,7 +31,7 @@ public class DFATransitionTest {
   @DisplayName("Simple test for a transition with current state q0,not final , next state q1,final and input 0")
   public void simpleTransitionTest() {
 
-    AutomatonTransition automatonTransition = new DFATransitionImpl(state1, state2, "0");
+    DFATransition automatonTransition = new DFATransitionImpl(state1, state2, "0");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state2);
@@ -42,7 +42,7 @@ public class DFATransitionTest {
   @DisplayName("Simple test for a transition with current state q0,not final, next state q1,final and input 1")
   public void simpleTransitionTest2() {
 
-    AutomatonTransition automatonTransition = new DFATransitionImpl(state1, state2, "1");
+    DFATransition automatonTransition = new DFATransitionImpl(state1, state2, "1");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state2);
@@ -53,7 +53,7 @@ public class DFATransitionTest {
   @DisplayName("Simple test for a transition with current state q0,not final, next state q0,not final and input 1")
   public void transitionToSelf() {
 
-    AutomatonTransition automatonTransition = new DFATransitionImpl(state1, state1, "1");
+    DFATransition automatonTransition = new DFATransitionImpl(state1, state1, "1");
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state1);
@@ -86,7 +86,7 @@ public class DFATransitionTest {
   @DisplayName("Simple test for a transition with current state q0, not final, next state q1, final and input null")
   public void transitionWithouInput() {
 
-    AutomatonTransition automatonTransition = new DFATransitionImpl(state1, state2, null);
+    DFATransition automatonTransition = new DFATransitionImpl(state1, state2, null);
 
     assertEquals(automatonTransition.getCurrentState(), state1);
     assertEquals(automatonTransition.getNextState(), state2);

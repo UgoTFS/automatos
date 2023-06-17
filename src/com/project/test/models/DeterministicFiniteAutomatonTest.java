@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.project.app.Interfaces.Automaton;
+import com.project.app.Interfaces.DFAutomaton;
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.DFATransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
@@ -20,11 +20,11 @@ import com.project.app.models.DeterministicFiniteAutomaton;
 public class DeterministicFiniteAutomatonTest {
 
   private static Set<AutomatonState> automatonStates;
-  private static Set<AutomatonTransition> automatonTransitions;
+  private static Set<DFATransition> automatonTransitions;
   private static Set<AutomatonState> automatonAcceptedStates;
   private static Set<String> alphabet;
 
-  private static Automaton automaton;
+  private static DFAutomaton automaton;
   private static AutomatonState initialState;
   private static AutomatonState currentState;
 
@@ -77,7 +77,7 @@ public class DeterministicFiniteAutomatonTest {
     automaton.setAlphabet(alphabet);
     automaton.setStates(automatonStates);
     automaton.setInitialState(initialState);
-    automaton.setTransitions(automatonTransitions);
+    automaton.setDFATransitions(automatonTransitions);
     automaton.setAcceptedStates(automatonAcceptedStates);
     automaton.setCurrentState(currentState);
 
@@ -89,14 +89,14 @@ public class DeterministicFiniteAutomatonTest {
 
     assert (automaton.getStates().containsAll(stateComparator));
 
-    Set<AutomatonTransition> transitionComparator = new HashSet<>();
+    Set<DFATransition> transitionComparator = new HashSet<>();
     transitionComparator.add(new DFATransitionImpl(state1, state2, "a"));
     transitionComparator.add(new DFATransitionImpl(state1, state3, "b"));
     transitionComparator.add(new DFATransitionImpl(state3, state4, "c"));
     transitionComparator.add(new DFATransitionImpl(state4, state4, "c"));
     transitionComparator.add(new DFATransitionImpl(state4, state1, "d"));
 
-    assert (automaton.getTransitions().containsAll(transitionComparator));
+    assert (automaton.getDFATransitions().containsAll(transitionComparator));
 
     Set<AutomatonState> acceptedStateComparator = new HashSet<>();
     acceptedStateComparator.add(state2);
@@ -136,9 +136,9 @@ public class DeterministicFiniteAutomatonTest {
   @Test
   @DisplayName("Test for an error empyt transitions set automaton")
   public void testEmptyTransitions() {
-    Set<AutomatonTransition> emptyTransitions = new HashSet<>();
+    Set<DFATransition> emptyTransitions = new HashSet<>();
     Exception exception = assertThrows(IllegalArgumentException.class,
-        () -> automaton.setTransitions(emptyTransitions));
+        () -> automaton.setDFATransitions(emptyTransitions));
 
     assertEquals("Transitions cannot be empty", exception.getMessage());
   }

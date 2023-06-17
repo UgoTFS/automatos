@@ -1,6 +1,6 @@
 package com.project.app.Interfaces;
 
-public interface AutomatonTransition {
+public interface DFATransition {
 
   public void setCurrentState(AutomatonState state);
   public void setNextState(AutomatonState state);

@@ -1,9 +1,9 @@
 package com.project.app.models;
 
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.PDATransition;
 
-public class PDATransitionImpl implements AutomatonTransition{
+public class PDATransitionImpl implements PDATransition{
   private AutomatonState currentState;
   private AutomatonState nextState;
   private String input;
@@ -55,18 +55,22 @@ public class PDATransitionImpl implements AutomatonTransition{
     return this.nextState;
   }
   
+  @Override
   public String getTopQueue() {
     return topQueue;
   }
 
+  @Override
   public void setTopQueue(String topQueue) {
     this.topQueue = topQueue;
   }
 
+  @Override
   public String getInputQueue() {
     return inputQueue;
   }
 
+  @Override
   public void setInputQueue(String inputQueue) {
     this.inputQueue = inputQueue;
   }

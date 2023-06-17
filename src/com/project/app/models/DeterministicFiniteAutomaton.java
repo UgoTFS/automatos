@@ -2,16 +2,16 @@ package com.project.app.models;
 
 import java.util.Set;
 
-import com.project.app.Interfaces.Automaton;
+import com.project.app.Interfaces.DFAutomaton;
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 
-public class DeterministicFiniteAutomaton implements Automaton{
+public class DeterministicFiniteAutomaton implements DFAutomaton{
 
   private Set<AutomatonState> statesSet;
   private Set<String> alphabetSet;
   private Set<AutomatonState> acceptedStatesSet;
-  private Set<AutomatonTransition> transitionsSet;
+  private Set<DFATransition> transitionsSet;
   private AutomatonState initialState;
   private AutomatonState currentState;
 
@@ -40,7 +40,7 @@ public class DeterministicFiniteAutomaton implements Automaton{
   }
 
   @Override
-  public void setTransitions(Set<AutomatonTransition> transitions) {
+  public void setDFATransitions(Set<DFATransition> transitions) {
     if( transitions.isEmpty() ){
       throw new IllegalArgumentException("Transitions cannot be empty");
     }
@@ -61,7 +61,7 @@ public class DeterministicFiniteAutomaton implements Automaton{
   }
 
   @Override
-  public Set<AutomatonTransition> getTransitions() {
+  public Set<DFATransition> getDFATransitions() {
     return this.transitionsSet;
   }
 

@@ -3,15 +3,15 @@ package com.project.app.models;
 import java.util.Deque;
 import java.util.Set;
 
-import com.project.app.Interfaces.Automaton;
+import com.project.app.Interfaces.PDATransition;
+import com.project.app.Interfaces.PDAutomaton;
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
 
-public class PushDownAutomaton implements Automaton {
+public class PushDownAutomaton extends DeterministicFiniteAutomaton implements PDAutomaton {
   private Set<AutomatonState> statesSet;
   private Set<String> alphabetSet;
   private Set<AutomatonState> acceptedStatesSet;
-  private Set<AutomatonTransition> transitionsSet;
+  private Set<PDATransition> transitionsSet;
   private AutomatonState initialState;
   private AutomatonState currentState;
 
@@ -35,7 +35,7 @@ public class PushDownAutomaton implements Automaton {
   }
 
   @Override
-  public void setTransitions(Set<AutomatonTransition> transitions) {
+  public void setPDATransitions(Set<PDATransition> transitions) {
     this.transitionsSet = transitions;
   }
 
@@ -50,7 +50,7 @@ public class PushDownAutomaton implements Automaton {
   }
 
   @Override
-  public Set<AutomatonTransition> getTransitions() {
+  public Set<PDATransition> getPDATransitions() {
     return this.transitionsSet;
   }
 
@@ -79,34 +79,42 @@ public class PushDownAutomaton implements Automaton {
     return this.currentState;
   }
 
+  @Override
   public Set<String> getStackAlphabetSet() {
     return stackAlphabetSet;
   }
 
+  @Override
   public void setStackAlphabetSet(Set<String> stackAlphabetSet) {
     this.stackAlphabetSet = stackAlphabetSet;
   }
 
+  @Override
   public void setStackMemoryDeque(Deque<String> stack) {
     this.stackMemoryDeque = stack;
   }
 
+  @Override
   public String getInitialSymbol() {
     return initialSymbol;
   }
 
+  @Override
   public void setInitialSymbol(String initialSymbol) {
     this.initialSymbol = initialSymbol;
   }
 
+  @Override
   public Deque<String> getStackMemoryDeque() {
     return stackMemoryDeque;
   }
 
+  @Override
   public void addStackMemoryElement(String value) {
     this.stackMemoryDeque.push(value);
   }
 
+  @Override
   public String removeStackMemoryElement(){
     if(!this.stackMemoryDeque.peek().equals(this.getInitialSymbol())){
       return this.stackMemoryDeque.pop();
@@ -114,6 +122,7 @@ public class PushDownAutomaton implements Automaton {
     return null;
   }
 
+  @Override
   public boolean equalsTopStackMemoryElement(String value){
     return this.stackMemoryDeque.peek().equals(value);
   }

@@ -4,25 +4,25 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.project.app.Interfaces.AutomatoRules;
-import com.project.app.Interfaces.Automaton;
+import com.project.app.Interfaces.DFAutomaton;
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.DFATransition;
 import com.project.test.AutomatonTestSuite;
 
 public class DFARules implements AutomatoRules {
 
   @Override
-  public boolean isFinalState(Automaton automaton) {
+  public boolean isFinalState(DFAutomaton automaton) {
     return automaton.getAcceptedStates().contains(automaton.getCurrentState());
   }
 
   @Override
-  public void reset(Automaton automaton) {
+  public void reset(DFAutomaton automaton) {
     automaton.setCurrentState(automaton.getInitialState());
   }
 
   @Override
-  public void processInput(Automaton automaton, String input, AutomatonTestSuite testSuite) throws IOException {
+  public void processInput(DFAutomaton automaton, String input, AutomatonTestSuite testSuite) throws IOException {
 
     // implement test suite exit
 
@@ -63,14 +63,14 @@ public class DFARules implements AutomatoRules {
   }
 
   @Override
-  public AutomatonState getCurrentState(Automaton automaton) {
+  public AutomatonState getCurrentState(DFAutomaton automaton) {
     return automaton.getCurrentState();
   }
 
   @Override
-  public boolean isTransitionPossible(Automaton automaton, String input) {
+  public boolean isTransitionPossible(DFAutomaton automaton, String input) {
     AtomicBoolean transitionFound = new AtomicBoolean(false);
-    automaton.getTransitions().stream().forEach(transition -> {
+    automaton.getDFATransitions().stream().forEach(transition -> {
       if (automaton.getCurrentState().equals(transition.getCurrentState()) && transition.getInput().equals(input)) {
         transitionFound.set(true);
       }
@@ -79,8 +79,8 @@ public class DFARules implements AutomatoRules {
   }
 
   @Override
-  public AutomatonState getNextState(Automaton automaton, String input) {
-    for (AutomatonTransition transition : automaton.getTransitions()) {
+  public AutomatonState getNextState(DFAutomaton automaton, String input) {
+    for (DFATransition transition : automaton.getDFATransitions()) {
       if (transition.getCurrentState().equals(automaton.getCurrentState())) {
         return transition.getNextState();
       }

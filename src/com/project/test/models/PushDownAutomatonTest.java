@@ -13,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.project.app.Interfaces.AutomatonState;
-import com.project.app.Interfaces.AutomatonTransition;
+import com.project.app.Interfaces.PDATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.PDATransitionImpl;
 import com.project.app.models.PushDownAutomaton;
@@ -22,7 +22,7 @@ public class PushDownAutomatonTest {
 
   
   private static Set<AutomatonState> automatonStates;
-  private static Set<AutomatonTransition> automatonTransitions;
+  private static Set<PDATransition> automatonTransitions;
   private static Set<AutomatonState> automatonAcceptedStates;
   private static Set<String> alphabet;
 
@@ -82,7 +82,7 @@ public class PushDownAutomatonTest {
     automaton.setAlphabet(alphabet);
     automaton.setStackAlphabetSet(alphabetQueue);
     automaton.setStates(automatonStates);
-    automaton.setTransitions(automatonTransitions);
+    automaton.setPDATransitions(automatonTransitions);
     automaton.setStackMemoryDeque(stackMemoryDeque);
 
   }
@@ -160,7 +160,7 @@ public class PushDownAutomatonTest {
   @DisplayName("testing for the return of the stack alphabet of the automaton")
   void testGetStackAlphabetSet() {
 
-    Set<String> alphos = new HashSet<String>();
+    Set<String> alphos = new HashSet<>();
     alphos.add("A");
 
     assertEquals(alphos, automaton.getStackAlphabetSet());
@@ -208,23 +208,23 @@ public class PushDownAutomatonTest {
   @Test
   void testGetTransitions() {
 
-    Set<AutomatonTransition> transitionsTemp = new HashSet<>();
+    Set<PDATransition> transitionsTemp = new HashSet<>();
 
     transitionsTemp.add(new PDATransitionImpl(state1, state2, "0", "^", "A^"));
     transitionsTemp.add(new PDATransitionImpl(state2, state2, "0", "A", "AA"));
     transitionsTemp.add(new PDATransitionImpl(state2, state3, "1", "A", null));
     transitionsTemp.add(new PDATransitionImpl(state3, state3, "1", "^", "^"));
 
-    assertEquals(automaton.getTransitions(), transitionsTemp);
+    assertEquals(automaton.getPDATransitions(), transitionsTemp);
 
-    Set<AutomatonTransition> transitionsNotEqualTemp = new HashSet<>();
+    Set<PDATransition> transitionsNotEqualTemp = new HashSet<>();
 
     transitionsNotEqualTemp.add(new PDATransitionImpl(state1, state2, "0", "^", "B^"));
     transitionsNotEqualTemp.add(new PDATransitionImpl(state2, state2, "0", "B", "BB"));
     transitionsNotEqualTemp.add(new PDATransitionImpl(state2, state3, "1", "B", null));
     transitionsNotEqualTemp.add(new PDATransitionImpl(state3, state3, "1", "^", "^"));
 
-    assertNotEquals(automaton.getTransitions(), transitionsNotEqualTemp);
+    assertNotEquals(automaton.getPDATransitions(), transitionsNotEqualTemp);
   }
 
   @Test
