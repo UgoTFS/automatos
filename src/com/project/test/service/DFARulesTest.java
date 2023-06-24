@@ -16,7 +16,7 @@ import com.project.app.Interfaces.DFATransition;
 import com.project.app.models.AutomatonStateImpl;
 import com.project.app.models.DFATransitionImpl;
 import com.project.app.models.DeterministicFiniteAutomaton;
-import com.project.app.service.DFARules;
+import com.project.app.service.DFARulesImpl;
 import com.project.app.utils.AutomatonType;
 import com.project.test.AutomatonTestSuite;
 
@@ -36,7 +36,7 @@ public class DFARulesTest {
   static AutomatonState state3;
   static AutomatonState state4;
 
-  private static DFARules automatonMotor;
+  private static DFARulesImpl automatonMotor;
   private static AutomatonTestSuite testFile;
 
   @BeforeAll
@@ -84,7 +84,7 @@ public class DFARulesTest {
 
     automaton.setDFATransitions(automatonTransitions);
 
-    automatonMotor = new DFARules();
+    automatonMotor = new DFARulesImpl();
 
     testFile = new AutomatonTestSuite(AutomatonType.DFA);
 

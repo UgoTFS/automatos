@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import com.project.app.models.DeterministicFiniteAutomaton;
 import com.project.app.models.PushDownAutomaton;
-import com.project.app.service.DFARules;
+import com.project.app.service.DFARulesImpl;
 import com.project.app.utils.AutomatonType;
 import com.project.test.AutomatonTestSuite;
 
@@ -28,7 +28,7 @@ public class AppAutomatonSetup {
 
         DeterministicFiniteAutomaton dfAutomatom = new DeterministicFiniteAutomaton();
         DFASetupImpl dfaSetup = new DFASetupImpl();
-        DFARules dfaMotor = new DFARules();
+        DFARulesImpl dfaMotor = new DFARulesImpl();
 
         testSuite = new AutomatonTestSuite(AutomatonType.DFA);
 

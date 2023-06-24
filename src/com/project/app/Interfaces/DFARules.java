@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.project.test.AutomatonTestSuite;
 
-public interface AutomatoRules {
+public interface DFARules {
   public boolean isFinalState(DFAutomaton automaton);
   public void reset(DFAutomaton automaton);
   public void processInput(DFAutomaton automaton, String input, AutomatonTestSuite testSuite) throws IOException;

@@ -3,13 +3,13 @@ package com.project.app.service;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.project.app.Interfaces.AutomatoRules;
+import com.project.app.Interfaces.DFARules;
 import com.project.app.Interfaces.DFAutomaton;
 import com.project.app.Interfaces.AutomatonState;
 import com.project.app.Interfaces.DFATransition;
 import com.project.test.AutomatonTestSuite;
 
-public class DFARules implements AutomatoRules {
+public class DFARulesImpl implements DFARules {
 
   @Override
   public boolean isFinalState(DFAutomaton automaton) {
